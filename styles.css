@@ -1,0 +1,13 @@
+mgt-file-list {
+  padding: 0 20px;
+}
+
+.files {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hoo-doccard {
+  margin: 0 1em 1em 0;
+  cursor: pointer;
+}

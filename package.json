@@ -1,0 +1,20 @@
+{
+  "name": "mgt-htwoo-files",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx http-server -c-1 -a localhost -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waldekmastykarz/mgt-htwoo-files.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/waldekmastykarz/mgt-htwoo-files/issues"
+  },
+  "homepage": "https://github.com/waldekmastykarz/mgt-htwoo-files#readme"
+}

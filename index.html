@@ -1,0 +1,40 @@
+<html>
+
+<head>
+  <script src="https://unpkg.com/@microsoft/mgt/dist/bundle/mgt-loader.js"></script>
+  <link rel="stylesheet" href="https://lab.n8d.studio/htwoo/htwoo-core/css/style.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <mgt-msal2-provider client-id="050f650c-8248-4bcc-8796-10a46041c6c8"></mgt-msal2-provider>
+  <mgt-login></mgt-login>
+  <mgt-file-list>
+    <template>
+      <h1>My files</h1>
+      <div class="files">
+        <div data-for="file in files" class="hoo-doccard" data-props="{{@click: openFile}}">
+          <div class="hoo-cardimage i{{file.id}}">
+            <div class="hoo-ph-squared"></div>
+          </div>
+          <div class="hoo-cardlocation i{{file.id}}">
+            <div class="hoo-ph-row"></div>
+          </div>
+          <div class="hoo-cardtitle">{{file.name}}</div>
+          <div class="hoo-cardfooter">
+            <div class="hoo-avatar i{{file.id}}">
+              <div class="hoo-ph-circle"></div>
+            </div>
+            <div class="hoo-cardfooter-data">
+              <div class="hoo-cardfooter-name">{{file.lastModifiedBy.user.displayName}}</div>
+              <div class="hoo-cardfooter-modified">{{formatDate(file.lastModifiedDateTime)}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+  </mgt-file-list>
+  <script src="script.js"></script>
+</body>
+
+</html>
