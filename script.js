@@ -47,5 +47,8 @@ fileList.templateContext = {
   },
   openFile: (e, context, root) => {
     window.open(context.file.webUrl, '_blank');
+  },
+  loadMore: (e, context, root) => {
+    root.parentNode.renderNextPage();
   }
 };
