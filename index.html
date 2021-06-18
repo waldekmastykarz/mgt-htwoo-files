@@ -12,16 +12,43 @@
       <h1>My files</h1>
       <div class="files">
         <div data-for="file in files" class="hoo-doccard" data-props="{{@click: openFile}}">
-          <div class="hoo-cardimage i{{file.id}}">
-            <div class="hoo-ph-squared"></div>
+          <div class="hoo-cardimage">
+            <mgt-get resource="/drives/{{file.parentReference.driveId}}/items/{{file.id}}/thumbnails/0/c320x320_crop/content" type="image" cache-enabled="true">
+              <template data-type="loading">
+                <div class="hoo-ph-squared"></div>
+              </template>
+              <template data-type="error">
+                <div class="hoo-ph-squared"></div>
+              </template>
+              <template data-type="default">
+                <img src="{{image}}" width="320" height="180" alt="">
+              </template>
+            </mgt-get>
           </div>
-          <div class="hoo-cardlocation i{{file.id}}">
-            <div class="hoo-ph-row"></div>
+          <div class="hoo-cardlocation">
+            <mgt-get resource="/drives/{{file.parentReference.driveId}}" cache-enabled="true">
+              <template data-type="loading">
+                <div class="hoo-ph-row"></div>
+              </template>
+              <template data-type="error">
+                <div class="hoo-ph-row"></div>
+              </template>
+              <template data-type="default">
+                {{name}}
+              </template>
+            </mgt-get>
           </div>
           <div class="hoo-cardtitle">{{file.name}}</div>
           <div class="hoo-cardfooter">
-            <div class="hoo-avatar i{{file.id}}">
-              <div class="hoo-ph-circle"></div>
+            <div class="hoo-avatar">
+              <mgt-get resource="/users/{{file.lastModifiedBy.user.id}}/photo/$value" type="image" cache-enabled="true">
+                <template data-type="loading">
+                  <div class="hoo-ph-circle"></div>
+                </template>
+                <template data-type="default">
+                  <img src="{{image}}" alt="" class="hoo-avatar-img" loading="lazy">
+                </template>
+              </mgt-get>
             </div>
             <div class="hoo-cardfooter-data">
               <div class="hoo-cardfooter-name">{{file.lastModifiedBy.user.displayName}}</div>
