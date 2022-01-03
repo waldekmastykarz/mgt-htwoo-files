@@ -1,24 +1,28 @@
 <html>
 <head>
   <script src="https://unpkg.com/@microsoft/mgt/dist/bundle/mgt-loader.js"></script>
-  <link rel="stylesheet" href="https://lab.n8d.studio/htwoo/htwoo-core/css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@n8d/htwoo-core/dist/css/htwoo.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <mgt-msal2-provider client-id="050f650c-8248-4bcc-8796-10a46041c6c8"></mgt-msal2-provider>
+  <mgt-msal2-provider client-id="d43f076b-c6a6-4805-97be-f9ef969241c0" authority="https://login.microsoftonline.com/M365x61791022.onmicrosoft.com"></mgt-msal2-provider>
   <mgt-login></mgt-login>
   <mgt-file-list>
     <template>
       <h1>My files</h1>
-      <div class="files">
+      <div class="hoo-cardgrid">
         <div data-for="file in files" class="hoo-doccard" data-props="{{@click: openFile}}">
           <div class="hoo-cardimage">
-            <mgt-get resource="/drives/{{file.parentReference.driveId}}/items/{{file.id}}/thumbnails/0/c320x320_crop/content" type="image" cache-enabled="true">
+            <div class="hoo-ph-squared" data-if="file.folder"></div>
+            <mgt-get data-if="!file.folder" resource="/drives/{{file.parentReference.driveId}}/items/{{file.id}}/thumbnails/0/c320x180_crop/content" type="image" cache-enabled="true">
               <template data-type="loading">
                 <div class="hoo-ph-squared"></div>
               </template>
               <template data-type="error">
-                <div class="hoo-ph-squared"></div>
+                <img src="./default.jpg" alt="">
+              </template>
+              <template data-type="no-data">
+                <img src="./default.jpg" alt="">
               </template>
               <template data-type="default">
                 <img src="{{image}}" width="320" height="180" alt="">
@@ -44,6 +48,9 @@
               <mgt-get resource="/users/{{file.lastModifiedBy.user.id}}/photo/$value" type="image" cache-enabled="true">
                 <template data-type="loading">
                   <div class="hoo-ph-circle"></div>
+                </template>
+                <template data-type="no-data">
+                  <div class="hoo-ph-circle hoo-avatar-img"></div>
                 </template>
                 <template data-type="default">
                   <img src="{{image}}" alt="" class="hoo-avatar-img" loading="lazy">
