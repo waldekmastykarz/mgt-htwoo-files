@@ -15,3 +15,8 @@ To run this app, you'll need:
 
 - clone the repo
 - in the terminal run `npm start`
+
+## Resources
+
+- folder photo by <a href="https://unsplash.com/@laikanotebooks?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Laika Notebooks</a> on <a href="https://unsplash.com/s/photos/folder?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- otter photo by <a href="https://unsplash.com/@mana5280?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">mana5280</a> on <a href="https://unsplash.com/s/photos/otter?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

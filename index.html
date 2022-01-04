@@ -13,16 +13,16 @@
       <div class="hoo-cardgrid">
         <div data-for="file in files" class="hoo-doccard" data-props="{{@click: openFile}}">
           <div class="hoo-cardimage">
-            <div class="hoo-ph-squared" data-if="file.folder"></div>
+            <div data-if="file.folder"><img src="./folder.jpg" alt=""></div>
             <mgt-get data-if="!file.folder" resource="/drives/{{file.parentReference.driveId}}/items/{{file.id}}/thumbnails/0/c320x180_crop/content" type="image" cache-enabled="true">
               <template data-type="loading">
                 <div class="hoo-ph-squared"></div>
               </template>
               <template data-type="error">
-                <img src="./default.jpg" alt="">
+                <img src="./otter.jpg" alt="">
               </template>
               <template data-type="no-data">
-                <img src="./default.jpg" alt="">
+                <img src="./otter.jpg" alt="">
               </template>
               <template data-type="default">
                 <img src="{{image}}" width="320" height="180" alt="">
